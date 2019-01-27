@@ -1,0 +1,16 @@
+
+<form [formGroup]="loginForm" [hidden]="registerForm" (ngSubmit)="login()">
+  <h1>Login</h1>
+  <div class="input-group mb-3">
+    <input type="email" class="form-control" formControlName="email" placeholder="Email"
+      required>
+      <span class="sp" *ngIf="loginForm.controls.email.hasError('pattern')">The email address must contain at least the @ character</span>
+  </div>
+  <div class="input-group mb-3">
+    <input type="password" id="password" class="form-control" formControlName="password" placeholder="Please enter the Password"
+      autocomplete="new-password" required><br>
+    <span class="sp" *ngIf="loginForm.controls.password.hasError('pattern')">Password Must Be 6 Digit, 1 Special case
+      ,Upper case and Lower case</span>
+  </div>
+  <button type="submit" [disabled]="!loginForm.valid" class="btn btn-block btn-success">login</button>
+</form>

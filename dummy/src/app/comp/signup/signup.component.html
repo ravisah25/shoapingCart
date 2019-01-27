@@ -1,0 +1,36 @@
+
+<form [formGroup]="signUpForm" [hidden]="registerForm" (ngSubmit)="register()">
+  <h1>Register</h1>
+  <p class="text-muted">Create your account</p>
+  <div class="input-group mb-1">
+    <input type="text" class="form-control" formControlName="firstName" placeholder="First Name"
+      required><br>
+      <span class="sp" *ngIf="signUpForm.controls.firstName.hasError('required')">First Name is required</span>
+  </div>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name" 
+      required>
+      <span class="sp"  *ngIf="signUpForm.controls.lastName.hasError('required')">Last Name is required</span>
+  </div>
+  <div class="input-group mb-3">
+    <input type="email" class="form-control" formControlName="email" placeholder="Email"
+      required>
+      <span class="sp" *ngIf="signUpForm.controls.email.hasError('pattern')">The email address must contain at least the @ character</span>
+  </div>
+  <div class="input-group mb-3">
+    <input type="password" id="password" class="form-control" formControlName="password" placeholder="Please enter the Password"
+      autocomplete="new-password" required><br>
+    <span class="sp" *ngIf="signUpForm.controls.password.hasError('pattern')">Password Must Be 6 Digit, 1 Special case
+      ,Upper case and Lower case</span>
+  </div>
+  <div class="input-group mb-3">
+    <input type="password" id="cPassword" class="form-control" formControlName="cPassword" placeholder="Confirm Password"
+      autocomplete="new-password" required><br>
+    <span class="sp" *ngIf="signUpForm.controls.cPassword.errors?.MatchPassword">
+      Please Confirm Your Password! Password doesnot Match</span>
+  </div>
+
+
+
+  <button type="submit" [disabled]="!signUpForm.valid" class="btn btn-block btn-success">Create Account</button>
+</form>

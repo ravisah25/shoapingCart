@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <div class="open-shopping-cart">
+        <a *ngIf="location.path() === '/signup'" routerLink="/login" class="back-button">Login</a>&nbsp;&nbsp;
+        <a *ngIf="location.path() === '/login'" routerLink="/signup" class="back-button">Register</a>&nbsp;&nbsp;
+        <div *ngIf="location.path() === ''">
+            <a routerLink="/login" *ngIf="loginStatus" class="back-button">Login</a>&nbsp;&nbsp;
+            <a routerLink="/signup" *ngIf="loginStatus" class="back-button">Register</a>&nbsp;&nbsp;
+            <p *ngIf="!loginStatus" routerLink="/cart">My Products&nbsp;&nbsp;{{items?.length}}</p>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</nav>
+
+<div class="nav-bar">
+
+</div>
+<router-outlet></router-outlet>

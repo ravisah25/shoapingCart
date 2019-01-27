@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="box">
+    <div class="box-body">
+      <p>
+        Product Details...
+      </p>
+      <div class="row">
+
+        <div class="col-md-3" *ngFor="let item of items">
+          <div class="product-image">
+            <i class="fa fa-picture-o" [ngStyle]="{ 'font-size': size+'em'}"></i>
+          </div>
+          <div class="item-name">
+            {{item.name}}
+          </div>
+          <div class="product-price">
+            {{item.getCurrency}}{{item.price}}
+          </div>
+          <hr>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
